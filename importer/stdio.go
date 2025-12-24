@@ -49,7 +49,7 @@ func NewStdioImporter(ctx context.Context, opts *importer.Options, name string, 
 	location = path.Clean(location)
 
 	return &StdioImporter{
-		stdin:   opts.Stdin,
+		stdin:   os.Stdin,
 		fileDir: location,
 		ctx:     ctx,
 		name:    name,
