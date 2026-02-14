@@ -51,7 +51,7 @@ func NewStdioImporter(ctx context.Context, opts *connectors.Options, name string
 	location = path.Clean(location)
 
 	return &StdioImporter{
-		stdin:   opts.Stdin,
+		stdin:   os.Stdin,
 		fileDir: location,
 		ctx:     ctx,
 		name:    name,

@@ -20,6 +20,7 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"os"
 	"strings"
 
 	"github.com/PlakarKorp/kloset/connectors"
@@ -44,9 +45,9 @@ func NewStdioExporter(appCtx context.Context, opts *connectors.Options, name str
 
 	switch name {
 	case "stdout":
-		w = opts.Stdout
+		w = os.Stdout
 	case "stderr":
-		w = opts.Stderr
+		w = os.Stderr
 	default:
 		return nil, fmt.Errorf("unknown stdio backend %s", name)
 	}
